@@ -4,157 +4,189 @@
 
 @section('styles')
 <style>
+    /* ==== Popular Section ==== */
     .popular-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 2rem 1rem;
+        padding: 3rem 1.5rem;
     }
 
     .popular-page-title {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #1a237e;
-        margin-bottom: 2rem;
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #1e3a8a;
+        margin-bottom: 2.5rem;
         padding-left: 0.5rem;
+        letter-spacing: 0.3px;
     }
 
     .popular-article-card {
-        background: white;
-        border-radius: 15px;
+        background: #fff;
+        border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        margin-bottom: 2rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        margin-bottom: 2.5rem;
         display: flex;
-        min-height: 200px;
+        flex-direction: row;
+        min-height: 240px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .popular-article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
     }
 
     .popular-article-thumbnail {
-        flex: 0 0 40%;
-        position: relative;
-        padding: 2rem;
+        flex-basis: 40%;
+        padding: 2.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        color: white;
+        color: #fff;
+        position: relative;
         overflow: hidden;
     }
 
     .popular-article-thumbnail.blue {
-        background: #1a237e;
+        background: linear-gradient(135deg, #1e3a8a, #2563eb);
     }
 
     .popular-article-thumbnail.gray {
-        background: #e0e0e0;
-        color: #333;
+        background: linear-gradient(135deg, #d1d5db, #9ca3af);
+        color: #222;
     }
 
     .popular-article-thumbnail h3 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         font-weight: 600;
-        line-height: 1.4;
-        margin-bottom: 0;
-        z-index: 3;
+        line-height: 1.45;
         position: relative;
+        z-index: 2;
+        margin-bottom: 0;
     }
 
     .popular-article-image {
         position: absolute;
-        right: -40px;
+        right: -35px;
         top: 50%;
         transform: translateY(-50%);
         width: 180px;
         height: 180px;
         object-fit: cover;
-        border-radius: 10px;
-        opacity: 0.9;
+        border-radius: 12px;
+        opacity: 0.85;
         z-index: 1;
-        box-shadow: -5px 5px 20px rgba(0,0,0,0.3);
+        box-shadow: -6px 6px 20px rgba(0, 0, 0, 0.25);
     }
 
     .popular-article-details {
         flex: 1;
-        padding: 2rem;
-        background: #f5f5f5;
+        padding: 2.5rem;
+        background: #fafafa;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
     .popular-article-details h4 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #1a237e;
-        margin-bottom: 0.8rem;
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: #1e40af;
+        margin-bottom: 0.75rem;
     }
 
     .popular-article-meta {
         color: #666;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         margin-bottom: 1rem;
     }
 
     .popular-article-excerpt {
         color: #333;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
+        line-height: 1.75;
+        margin-bottom: 1.75rem;
         flex-grow: 1;
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     .btn-read-more-popular {
-        background-color: #071026;
-        color: white;
-        border: none;
-        padding: 0.6rem 1.8rem;
-        border-radius: 8px;
-        text-decoration: none;
-        display: inline-block;
         align-self: flex-end;
-        transition: background-color 0.3s;
-        font-weight: 500;
+        background: #0f172a;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 0.7rem 1.8rem;
+        text-decoration: none;
         font-size: 0.95rem;
+        font-weight: 500;
+        transition: all 0.25s ease;
     }
 
     .btn-read-more-popular:hover {
-        background-color: #0d47a1;
-        color: white;
+        background: #1d4ed8;
     }
 
+    /* ==== Pagination ==== */
     .popular-pagination {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0.5rem;
-        margin-top: 2rem;
+        gap: 0.6rem;
+        margin-top: 2.5rem;
         font-size: 1rem;
     }
 
     .popular-pagination .page-text {
         color: #333;
         font-weight: 500;
-        margin-right: 0.5rem;
     }
 
     .popular-pagination .page-number {
-        color: #1a237e;
+        color: #1e3a8a;
         text-decoration: none;
         padding: 0.5rem 1rem;
-        border-radius: 5px;
-        transition: all 0.3s;
+        border-radius: 6px;
         font-weight: 500;
+        transition: all 0.3s ease;
     }
 
-    .popular-pagination .page-number:hover {
-        background-color: #1a237e;
-        color: white;
-    }
-
+    .popular-pagination .page-number:hover,
     .popular-pagination .page-number.active {
-        background-color: #1a237e;
-        color: white;
-        font-weight: bold;
+        background: #1e3a8a;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    /* ==== Responsive ==== */
+    @media (max-width: 900px) {
+        .popular-article-card {
+            flex-direction: column;
+        }
+
+        .popular-article-thumbnail {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .popular-article-image {
+            position: static;
+            transform: none;
+            margin: 1rem auto 0;
+            width: 160px;
+            height: 160px;
+        }
+
+        .popular-article-details {
+            padding: 2rem;
+        }
+
+        .popular-page-title {
+            font-size: 1.8rem;
+        }
     }
 </style>
+
 @endsection
 
 @section('content')

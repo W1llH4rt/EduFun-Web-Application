@@ -3,54 +3,69 @@
 @section('title', 'About Us - EduFun')
 
 @section('styles')
-
 <style>
-    .about-wrapper {
-        max-width: 900px;
+    .about-container {
+        max-width: 960px;
         margin: 0 auto;
         padding: 3rem 1.5rem;
     }
 
-    .about-header {
-        font-size: 2.3rem;
+    .about-title {
+        font-size: 2.25rem;
         font-weight: 700;
-        color: #1a1a1a;
+        color: #111;
         text-align: center;
         margin-bottom: 2.5rem;
         letter-spacing: 0.5px;
     }
 
-    .about-section {
-        background-color: #f9fafb;
+    .about-content {
+        background-color: #fafafa;
         border-radius: 12px;
-        padding: 2.5rem;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        padding: 2.5rem 2rem;
         line-height: 1.8;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
-    .about-section p {
-        font-size: 1.1rem;
+    .about-content p {
+        font-size: 1.25rem;
         color: #444;
-        text-align: justify;
-        margin-bottom: 1.8rem;
+        margin-bottom: 1.5rem;
     }
 
-    .about-section p:last-child {
+    .about-content p:last-child {
         margin-bottom: 0;
     }
+
+    @media (max-width: 768px) {
+        .about-title {
+            font-size: 1.8rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+        }
+
+        .about-content {
+            padding: 2rem 1rem;
+        }
+    }
 </style>
+
 @endsection
 
 @section('content')
-<div class="about-wrapper">
-    <h1 class="about-header">Tentang EduLearn</h1>
-    <div class="about-section">
+<div class="about-container">
+    <h1 class="about-title">About EduFun</h1>
+    <div class="about-content">
         <p>
-            EduLearn merupakan platform pembelajaran digital karya anak bangsa yang berfokus pada penyediaan akses pengetahuan berbasis teknologi. Melalui situs web interaktif, EduLearn menghadirkan berbagai materi edukatif berbahasa Indonesia yang mudah dijangkau oleh siapa pun.
+            EduFun adalah perusahaan pendidikan berbasis teknologi asal Indonesia. EduFun menyediakan layanan akses pendidikan dalam format tulisan berbahasa Indonesia yang disajikan secara online melalui website.
         </p>
         <p>
-            Per Juni 2024, platform ini telah digunakan oleh lebih dari 10.000 pelajar di seluruh Indonesia. EduLearn berkomitmen untuk menjadi bagian dari transformasi pendidikan nasional dengan menanamkan pola pikir kritis, analitis, dan ilmiah. Tujuan akhirnya adalah membangun generasi muda yang haus akan ilmu, berpikir rasional, dan mencintai proses belajar sepanjang hayat.
+            Hingga Juni 2024, EduFun memiliki lebih dari 10 ribu pengguna. EduFun hadir sebagai bentuk revolusi dari pendidikan di Indonesia dengan mengedepankan cara berpikir kritis, logis, rasional, dan sumber pengetahuan sains yang terintegrasi terhadap semua mahasiswa IT di Indonesia. EduFun bercita-cita mencetak generasi Indonesia yang memahami ilmu pengetahuan dan cinta belajar.
         </p>
     </div>
 </div>
 @endsection
+
